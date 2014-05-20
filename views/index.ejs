@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="content">
+    </div>
+    
+    <script id="postList-tpl" type="text/x-handlebars-template">
+      <a href="#" class="newPost">
+        <h2 class="addition">+</h2>
+      </a>
+      {{#each-reverse items}}
+        <div class="item">
+            <hr>
+            <div class="item-info">
+            <p>{{ formatDate createdAt }}</p>
+            <div class="buttons">
+            <a href="#" data-id="{{id}}" class="edit">Edit </a> | 
+            <a href="#" data-id="{{id}}" class="remove">Delete</a>
+            </div>
+            </div>
+            <div class="details">
+            <a href="#" class="detail" data-id="{{id}}">{{ title }}</a>
+            </div>
+          </div>
+      {{/each-reverse}}
+    </script>
+
+    <script id="postDetail-tpl" type="text/x-handlebars-template">
+      <a href="#" class="back">
+        <h2 class="addition"><</h2>
+      </a>
+      
+    <div class="item">
+    <hr>
+            <div class="item-info">
+            {{ formatDate createdAt }}<br>
+            <div class="buttons">
+            <a href="#" data-id="{{id}}" class="edit">Edit </a> | 
+            <a href="#" data-id="{{id}}" class="remove">Delete</a>
+            </div>
+            </div>
+            <div class="details">
+            <h1>{{ title }}</h1>
+            <p class="note"> {{breaklines content}} </p>
+            </div>
+    </div>
+    </script>
+
+    <script id="postForm-tpl" type="text/x-handlebars-template">
+    <a href="#" class="back">
+        <h2 class="addition"><</h2>
+      </a>
+     <div class="form">
+          <form name="form"> 
+          <input type="text" id="titleInput" value="{{ title }}"/>
+          <br>
+          <textarea id="contentInput">{{ content }}</textarea>
+          <br>
+          <button type="submit" name="submit" id="add">SUBMIT</button>
+          </form>
+        </div>
+    </script>
+
+    <script src="/javascripts/jquery-1.11.0.js"></script>
+    <script src="/javascripts/handlebars-v1.3.0.js"></script>
+    <script src="/javascripts/underscore.js"></script>
+    <script src="/javascripts/backbone.js"></script>
+    <script src="/javascripts/handlebarHelper.js"></script>
+    <script src="/javascripts/post.js"></script>
+    
+  
+  </body>
+</html>
