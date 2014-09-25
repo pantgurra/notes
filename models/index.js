@@ -2,7 +2,7 @@ var fs        = require('fs')
   , path      = require('path')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
-  , sequelize = new Sequelize('posts_app', 'root', 'root', {port:8889})
+  , sequelize = new Sequelize('notes_app', 'root', 'root', {port:8889})
   , db        = {}
 
 fs

@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <div id="content">
-    </div>
-    
-    <script id="postList-tpl" type="text/x-handlebars-template">
-      <a href="#" class="newPost">
-        <h2 class="addition">+</h2>
-      </a>
-      {{#each-reverse items}}
-        <div class="item">
-            <hr>
-            <div class="item-info">
-            <p>{{ formatDate createdAt }}</p>
-            <div class="buttons">
-            <a href="#" data-id="{{id}}" class="edit">Edit </a> | 
-            <a href="#" data-id="{{id}}" class="remove">Delete</a>
-            </div>
-            </div>
-            <div class="details">
-            <a href="#" class="detail" data-id="{{id}}">{{ title }}</a>
-            </div>
-          </div>
-      {{/each-reverse}}
-    </script>
+   <head>
+      <title><%= title %></title>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+   </head>
+   <body>
+      <div id="content">
+      </div>
 
-    <script id="postDetail-tpl" type="text/x-handlebars-template">
-      <a href="#" class="back">
-        <h2 class="addition"><</h2>
-      </a>
+      <script id="postList-tpl" type="text/x-handlebars-template">
+         <div class="hidden">
+            <a href="#" class="newPost">
+               add new note
+            </a>
+         </div>
+         <div class="inactive">
+            <p class="plus">
+               +
+            </p>
+         </div>
+         {{#each-reverse items}}
+            <div class="item">
+               <p class="date">
+                  {{ formatDate createdAt }}
+               </p>
+               <a href="#" class="detail" data-id="{{id}}">
+                  {{ title }}
+               </a>
+               <div class="control">
+                  <a href="#" data-id="{{id}}" class="edit">
+                     EDIT
+                  </a> | 
+                  <a href="#" data-id="{{id}}" class="remove">
+                     DELETE
+                  </a>
+               </div>
+            </div>
+         {{/each-reverse}}
+      </script>
+
+      <script id="postDetail-tpl" type="text/x-handlebars-template">
+         <div class="hidden">
+            <a href="#" class="back">
+               go back
+            </a>
+         </div>
+         <div class="inactive">
+            <p class="plus">
+               +
+            </p>
+         </div>
+         <div class="selected">
+            <p class="date">
+               {{ formatDate createdAt }}
+            </p>
+            <h1 class="title">
+               {{ title }}
+            </h1>
+            <p class="note"> 
+               {{breaklines content}}
+            </p>
+            <div class="control">
+               <a href="#" data-id="{{id}}" class="edit">
+                  EDIT 
+               </a> | 
+               <a href="#" data-id="{{id}}" class="remove">
+                  DELETE
+               </a>
+            </div>
+         </div>
+      </script>
+
+      <script id="postForm-tpl" type="text/x-handlebars-template">
+         <div class="hidden">
+            <a href="#" class="back">
+               go back
+            </a>
+         </div>
+         <div class="inactive">
+            <p class="plus">
+               +
+            </p>
+         </div>
+         <div class="form">
+            <form name="form"> 
+               <input type="text" id="titleInput" value="{{ title }}" placeholder="title"/>
+               <textarea id="contentInput" placeholder="note">{{ content }}</textarea>
+               <button type="submit" name="submit" id="add">ADD NOTE</button>
+            </form>
+         </div>
+      </script>
       
-    <div class="item">
-    <hr>
-            <div class="item-info">
-            {{ formatDate createdAt }}<br>
-            <div class="buttons">
-            <a href="#" data-id="{{id}}" class="edit">Edit </a> | 
-            <a href="#" data-id="{{id}}" class="remove">Delete</a>
-            </div>
-            </div>
-            <div class="details">
-            <h1>{{ title }}</h1>
-            <p class="note"> {{breaklines content}} </p>
-            </div>
-    </div>
-    </script>
-
-    <script id="postForm-tpl" type="text/x-handlebars-template">
-    <a href="#" class="back">
-        <h2 class="addition"><</h2>
-      </a>
-     <div class="form">
-          <form name="form"> 
-          <input type="text" id="titleInput" value="{{ title }}"/>
-          <br>
-          <textarea id="contentInput">{{ content }}</textarea>
-          <br>
-          <button type="submit" name="submit" id="add">SUBMIT</button>
-          </form>
-        </div>
-    </script>
-
     <script src="/javascripts/jquery-1.11.0.js"></script>
     <script src="/javascripts/handlebars-v1.3.0.js"></script>
     <script src="/javascripts/underscore.js"></script>
     <script src="/javascripts/backbone.js"></script>
     <script src="/javascripts/handlebarHelper.js"></script>
     <script src="/javascripts/post.js"></script>
-    
-  
   </body>
 </html>
