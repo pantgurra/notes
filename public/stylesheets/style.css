@@ -51,7 +51,7 @@ table {
 
 
 body {
-  font: 14px "Futura", Helvetica, Arial, sans-serif;
+  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
   background-color: #f6f6f6;;
 }
 
@@ -69,32 +69,44 @@ h2 {
      color:#82d500;
 }
 
-h2:hover {
-     -webkit-transform: scale(1.1);
-}
-
-h2:active {
-     -webkit-transform: scale(1);
-}
-
 a {
      text-decoration: none;
      color: #a9a9a9;
 }
 
 a:hover {
-     color:#82d500;
-}
-
-.buttons {
-     color: #a9a9a9;
-     font-size:0.8em;
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     color:#00dbff;
 }
 
 .item {
-     padding: 0 0 0 0;
-     margin-bottom:2em;
-     clear:both;
+     position: relative;
+     float:left;
+     margin-left: 40px;
+     margin-bottom: 40px;
+     width:160px;
+     height:160px;
+     background-color: white;
+     padding:20px;
+}
+
+.selected {
+     position: relative;
+     float:left;
+     margin-left: 5%;
+     margin-right: 40px;
+     margin-bottom: 40px;
+     width:80%;
+     background-color: white;
+     padding:5%;
+}
+
+.testitem-info {
+     
+
 }
 
 hr {
@@ -107,26 +119,51 @@ p {
 }
 
 div.item-info {
-	font-size: 0.8em;
+     font-size: 0.8em;
      margin-bottom: 2em;
      padding-left: 2em;
-	float:left;
-	color:#82d500;
+     float:left;
+     color:#82d500;
 }
 
 div.buttons {
-	float:right;
+     float:right;
 }
 
 div.details {
      float:left;
 }
 
-a.detail {
-     font-size: 3em;
-     margin-left: 1em;
+.detail {
+     text-transform: uppercase;
+     color:black;
+     font-size: 1.5em;
+     font-weight: bolder;
      height:3em;
      line-height: 0.8em;
+}
+.title {
+     text-transform: uppercase;
+     color:black;
+     margin-left: 0px;
+     font-size: 3em;
+     font-weight: bolder;
+     height:1.5em;
+     line-height: 0.8em;
+
+}
+
+.control {
+     position: absolute;
+     bottom:0%;
+     margin-bottom: 20px;
+     font-size: 0.6em;
+}
+
+.date {
+     color:black;
+     font-weight: lighter;
+     margin-bottom: 20px;
 }
 
 p.note {
@@ -135,7 +172,6 @@ p.note {
      margin-top: 2em;
      margin-bottom: 2em;
      color:#a9a9a9;
-     font-family: "Didot";
      font-size: 1em;
      max-width: 600px;
 }
@@ -148,43 +184,185 @@ form {
 
 input {
      width:100%;
-     max-width: 600px;
-     border:0;
+     border:2px solid white;
+     background-color: transparent;
      outline:none;
      font-size: 20px;
      padding:5px 0px 5px 0px;
      text-indent: 5px;
+}
+
+input:focus {
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     border:2px solid white;
+     background-color: white;
 }
 
 textarea {
      margin-top:10px;
      width:100%;
-     max-width: 600px;
-     border:0;
+     border:2px solid white;
      padding:5px 0px 5px 0px;
      text-indent: 5px;
+     background-color: transparent;
      outline:none;
      resize:none;
      font-size: 20px;
      height:7em;
 }
+textarea:focus {
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     border:2px solid white;
+     background-color: white;
+}
 
 button {
      margin-top: 10px;
      width:100%;
-     max-width: 600px;
-     border:0;
-     padding:5px;
-     background-color:#82d500;
+     border:2px solid white;
+     padding:40px;
+     background-color:white;
      outline: none;
-     color:white;
+     color:black;
      font-size: 20px;
 }
 
 button:hover {
-     background-color: #8de700;
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     background-color: #00dbff;
+     border:2px solid #00dbff;
+     color:white;
 }
 
 button:active {
-     background-color: #7ecf00;
+     background-color: #fff;
+}
+
+#posts{
+     margin-top: 80px;
+}
+#content{
+     margin-top: 80px;
+}
+.inactive{
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     position:absolute;
+     font-size: 40px;
+     color:white;
+     background-color: black;
+     width:60px;
+     height:60px;
+     top:0px;
+     left:0px;
+}
+
+.active{
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     position:absolute;
+     font-size: 40px;
+     color:white;
+     background-color: black;
+     width:60px;
+     height:60px;
+     top:0px;
+     left:160px;
+
+}
+.plus{
+     text-align: center;
+     color:white;
+     
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+}
+.cross    {
+     text-align: center;
+     color:white;
+ 
+     transform: translateY(-50%);
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     transform: rotate(45deg);
+     -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+     -o-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+}
+.newPost {
+     text-align: center;
+     color:black;
+     position: relative;
+     top: 25%;
+     
+}
+.newPost:hover {
+     transition:none;
+     -webkit-transition:none;
+     -moz-transition:none;
+     -o-transition:none;
+     color:#00dbff;
+}
+
+.back {
+     text-align: center;
+     color:black;
+     position: relative;
+     top: 25%;
+     
+}
+.back:hover {
+     transition:none;
+     -webkit-transition:none;
+     -moz-transition:none;
+     -o-transition:none;
+     color:#00dbff;
+}
+
+.hidden{
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     position: absolute;
+     text-align: center;
+     left:-160px;
+     top:0px;
+     width:160px;
+     height:60px;
+     font-size: 20px;
+     background-color: white;
+}
+.show{
+     transition:All 1s ease;
+     -webkit-transition:All 1s ease;
+     -moz-transition:All 1s ease;
+     -o-transition:All 1s ease;
+     position:absolute;
+     text-align: center;
+     left:0px;
+     top:0px;
+     width:160px;
+     height:60px;
+     font-size: 20px;
+     background-color: white;
+     
 }
